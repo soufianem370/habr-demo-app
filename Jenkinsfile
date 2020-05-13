@@ -98,7 +98,7 @@ spec:
                 }
                 container('docker') {
                     script {
-                        registryIp = sh(script: 'getent hosts registry.kube-system | awk \'{ print $1 ; exit }\'', returnStdout: true).trim()
+                        registryIp = '172.42.42.1'
                         sh "docker build . -t ${registryIp}/demo/app:${revision} --build-arg REVISION=${revision}"
                     }
                 }
